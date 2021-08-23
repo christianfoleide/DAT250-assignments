@@ -45,6 +45,6 @@ public class SimpleController {
 
     @PostConstruct
     public void checkJdbcURL() {
-        log.info("DataSource: {}", jdbcTemplate.getDataSource());
+        log.info("DataSource: {}", jdbcTemplate.getDataSource().toString());
     }
 }
