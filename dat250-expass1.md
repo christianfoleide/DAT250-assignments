@@ -8,10 +8,6 @@ Steps I took:
    - Windows, edit environment variables, add ``/bin`` directory to PATH
    - Exit/restart shell
    - Run ``mvn -v``
-```terminal
-$ mvn -v
-
-```
   
 ### JDK
 I already had a recent version of ``OpenJDK`` installed.
@@ -34,9 +30,9 @@ Build outputs of ``heroku push master`` failed with
 Fatal error compiling: invalid target release 16
 ```
 
-To fix this, I created a ``system.properties`` file, specifying ``java.runtime.version=16``. I then commited and pushed this new file to git, followed by a new ``heroko push master``.
+To fix this, I created a ``system.properties`` file, specifying ``java.runtime.version=16``. I then committed and pushed this new file to git, followed by a new ``heroko push master``.
 
-Note: I did not use the template Java project provided by the heroku docs, but instead created my own Spring Boot application.
+Note: I did not use the template Java project provided by the heroku docs, but instead created my own simple Spring Boot application.
 
 Using CURL:
 ```terminal
