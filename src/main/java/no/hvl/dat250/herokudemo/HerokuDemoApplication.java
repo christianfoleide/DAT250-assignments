@@ -16,6 +16,9 @@ public class HerokuDemoApplication {
 
     @EventListener(ApplicationStartedEvent.class)
     public void doOnStartup() {
-        log.info("Application started...");
+        var configVar = System.getenv("helloMessage");
+        if (configVar != null) {
+            log.info("Found configVar: {}", configVar);
+        }
     }
 }
