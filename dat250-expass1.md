@@ -74,5 +74,33 @@ To find the Heroku HTTP routing stack returns a ``503 Service Unavailable`` head
 
 I skipped the part of adding dependencies, as I had already added Spring Boot's starter dependencies to my ``pom.xml``.
 
+#### Config variables
 
+The new code:
+```java
+@EventListener(ApplicationStartedEvent.class)
+public void doOnApplicationStarted() {
+    var configVar = System.getenv("helloMessage");
+    if (configVar != null) {
+        log.info("Found conifigVar: {}", configVar);
+    }
+}
+```
+This method will run when the Spring Boot application has started.
 
+The Heroku part:
+I added a config variable using ``heroku config:set helloMessage="hello, world!"``
+
+```terminal
+$ heroku config:set helloMessage="hello, world!"
+Setting helloMessage and restarting ¤ secret-sands-21120... done, v5
+helloMessage: hello, world!
+```
+
+I then checked the newest logs using ``heroku logs --tail``:
+```terminal
+n.h.d.herokudemo.HerokuDemoApplication   : Found configVar: hello, world!
+```
+
+#### Provisioning add-ons
+I skipped the part of using ``Papertail``.
