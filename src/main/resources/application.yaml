@@ -3,3 +3,6 @@ server:
 spring:
   datasource:
     url: ${DATABASE_URL}
+
+database:
+  url: ${DATABASE_URL}

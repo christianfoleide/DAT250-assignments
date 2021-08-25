@@ -2,6 +2,7 @@ package no.hvl.dat250.herokudemo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,9 @@ import javax.annotation.PostConstruct;
 public class SimpleController {
 
     private final JdbcTemplate jdbcTemplate;
+
+    @Value("${database.url}")
+    private String jdbcURL;
 
     @Autowired
     public SimpleController(JdbcTemplate jdbcTemplate) {
@@ -45,6 +49,6 @@ public class SimpleController {
 
     @PostConstruct
     public void checkJdbcURL() {
-        log.info("DataSource: {}", jdbcTemplate.getDataSource().toString());
+        log.info("DataSource: {}", jdbcURL);
     }
 }
