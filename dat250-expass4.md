@@ -1,5 +1,9 @@
 ## Hand-in report DAT250 assignment 4
 
+### Task 1
+
+I cloned the repository and ran the code without any issues.
+
 ### Task 2 - implementing REST Api for TODO-items
 
 Code is found inside the `./spark-java` folder.
@@ -58,4 +62,4 @@ Body:
 ```
 
 #### Issues
-I had no issues using the Persistence API with Derby, or Spark.
+I had no issues using the Persistence API or the Spark framework.
